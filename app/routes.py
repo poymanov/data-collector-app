@@ -1,9 +1,11 @@
 from app import app
 from flask import render_template, request
+from app.forms import DataForm
 
 @app.route('/')
 def home():
-	return render_template('home.html')
+	form = DataForm()
+	return render_template('home.html', form=form)
 
 @app.route('/success', methods=['POST'])
 def success():

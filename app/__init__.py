@@ -14,4 +14,4 @@ db.init_app(app)
 migrate = Migrate()
 migrate.init_app(app, db)
 
-from app import routes, models
+from app import routes, models, forms
