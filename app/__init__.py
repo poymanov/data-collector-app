@@ -6,6 +6,7 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
 Bootstrap(app)
 
 db = SQLAlchemy()
