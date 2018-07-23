@@ -1,15 +1,17 @@
-from flask import Flask, render_template, request
+from flask import Flask
 from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from config import Config
 
 app = Flask(__name__)
+app.config.from_object(Config)
 Bootstrap(app)
 
-@app.route('/')
-def home():
-	return render_template('home.html')
+db = SQLAlchemy()
+db.init_app(app)
 
-@app.route('/success', methods=['POST'])
-def success():
-	email = request.form['email']
-	height = request.form['height']
-	return render_template('success.html')	
+migrate = Migrate()
+migrate.init_app(app, db)
+
+from app import routes, models
