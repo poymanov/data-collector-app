@@ -1,1 +1,3 @@
 Hey there, your height is {{ height }}
+Average height of all is {{ average_height }} and that is calculated out of {{ people_count }} people.
+Thanks!
